@@ -1,4 +1,6 @@
 server:
+  servlet:
+    context-path: /
   port: 8088
 #微服务配置
 spring:

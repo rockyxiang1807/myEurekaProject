@@ -21,6 +21,7 @@
         <module>rocky1807-common</module>
         <module>rocky1807-admin-service</module>
         <module>rocky1807-feature-service</module>
+        <module>rocky1807-gateway-zuul</module>
         <module>eureka-server</module>
     </modules>
 

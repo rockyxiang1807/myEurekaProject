@@ -1,16 +1,9 @@
 server:
-  servlet:
-    context-path: /
-  port: 8099
+  port: 8888
 #微服务配置
 spring:
   application:
-    name: feature-service
-  jackson:
-    date-format: yyyy-MM-dd HH:mm:ss
-    time-zone: GMT+8
-  profiles:
-    active: dev
+    name: gateway-zuul
 eureka:
   instance:
     #更改主机实例ID名
@@ -25,3 +18,7 @@ eureka:
     service-url:
       #向服务注册中心注册自己（此处为注册中心地址）
       defaultZone: http://localhost:6688/eureka/
+zuul:
+  routes:
+    admin-service: /admin/**
+    feature-service: /feature/**
