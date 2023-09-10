@@ -1,9 +1,9 @@
 server:
-  port: 8088
+  port: 8099
 #微服务配置
 spring:
   application:
-    name: admin-service
+    name: feature-service
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8
