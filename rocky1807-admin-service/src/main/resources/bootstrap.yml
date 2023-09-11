@@ -28,3 +28,12 @@ eureka:
     service-url:
       #向服务注册中心注册自己（此处为注册中心地址）
       defaultZone: http://localhost:6688/eureka/
+
+feature-service: # 给某个微服务配置负载均衡规则，这里是feature-service服务
+  ribbon:
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule # 负载均衡规则
+ribbon:
+  # 懒加载
+  eager-load:
+    enabled: true
+    clients: feature-service
