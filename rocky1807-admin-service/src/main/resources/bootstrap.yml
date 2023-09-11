@@ -37,3 +37,56 @@ ribbon:
   eager-load:
     enabled: true
     clients: feature-service
+
+#hystrix
+feign:
+  hystrix:
+    enabled: true
+  circuitbreaker:
+    enabled: true
+
+hystrix:
+  threadpool:
+    #默认配置
+    default:
+      #动态调整线程数
+      allowMaximumSizeToDivergeFromCoreSize: false
+      #核心线程数
+      coreSize: 10
+      #最大线程数
+      maximumSize: 10
+      #空闲存活时间min
+      keepAliveTimeMinutes: 1
+      #队列长度 设置置为-1时，队列会使用 SynchronousQueue，此时其 size 为0，Hystrix 不会向队列内存放作业。
+      maxQueueSize: -1
+      #如果需要动态修改队列长度的话可以设置此值，即使队列未满，队列内作业达到此值时同样会拒绝请求。此值默认是 5
+      queueSizeRejectionThreshold: 5
+  command:
+    default:
+      #线程池key
+      threadPoolKeyOverride: default
+      #熔断器
+      circuitBreaker:
+        enabled: true
+        #错误占比
+        errorThresholdPercentage: 50
+        #窗口时间内最小请求数目
+        requestVolumeThreshold: 20
+        #休眠时间
+        sleepWindowInMilliseconds: 5000
+      execution:
+        #隔离
+        isolation:
+          strategy: THREAD
+          thread:
+            #线程超时时间
+            timeoutInMilliseconds: 5000
+        timeout:
+          enabled: true
+      #统计器
+      metrics:
+        rollingStats:
+          #窗口大小
+          timeInMilliseconds: 10000
+          #桶数目需要保证与timeInMilliseconds整除
+          numBuckets: 10
