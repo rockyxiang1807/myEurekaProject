@@ -11,15 +11,15 @@ import org.springframework.web.bind.annotation.RestController;
  */
 
 @RestController
-@RefreshScope
+//@RefreshScope
 public class MyZooKeeperController {
 
-    @Value("${myValue}")
-    private String myValue;
-
-    @GetMapping("/zooMes")
-    public String basic() {
-        System.out.println("==============================");
-        return "ZooKeeper MyValue: " + myValue + " message!";
-    }
+//    @Value("${myValue}")
+//    private String myValue;
+//
+//    @GetMapping("/zooMes")
+//    public String basic() {
+//        System.out.println("==============================");
+//        return "ZooKeeper MyValue: " + myValue + " message!";
+//    }
 }
